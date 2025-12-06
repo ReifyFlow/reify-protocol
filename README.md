@@ -43,4 +43,4 @@ reify-protocol/
 将 `firmware/reify_log.h` 复制到您的 MCU 工程中以启用标准日志回传。
 
 ---
-*Created for ReifyFlow MVP.*
+*Created for ReifyFlow.*

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ReifyFlow v1.3 Architecture (Fixed)</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            securityLevel: 'loose',
+            themeVariables: {
+                primaryColor: '#f4f4f4',
+                edgeLabelBackground: '#ffffff',
+                tertiaryColor: '#fff',
+                fontFamily: 'Segoe UI, sans-serif'
+            }
+        });
+    </script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f0f12; color: #ccc; display: flex; flex-direction: column; align-items: center; }
+        .container { background: #1a1a1e; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); max-width: 1200px; width: 100%; margin-top: 20px;}
+        h1 { color: #8e9297; font-weight: 300; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .annotation { margin-top: 20px; line-height: 1.6; font-size: 0.9em; color: #aaa; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ReifyFlow v1.3: Structure & Ontology (Fixed)</h1>
+        <div class="mermaid">
+            graph TD
+                %% 定义样式类
+                classDef metaphysical fill:#2a3b55,stroke:#64b5f6,stroke-width:2px,color:#fff;
+                classDef logical fill:#37474f,stroke:#90a4ae,stroke-width:2px,color:#fff;
+                classDef physical fill:#3e2723,stroke:#a1887f,stroke-width:2px,color:#fff;
+                classDef governance fill:#4a3b2a,stroke:#ffd54f,stroke-width:2px,stroke-dasharray: 5 5,color:#ffd54f;
+                classDef operator fill:#000,stroke:#fff,stroke-width:1px,color:#fff;
+
+                %% --- 治理与法 (The Dao / Governance) ---
+                subgraph Governance_Realm ["🏛️ Governance Realm (天道/法)"]
+                    Policy("📜 Policy (Constraints)<br/>安全边界 / 戒律"):::governance
+                    Arbiter("⚖️ Arbiter (Choice)<br/>仲裁者 / 决断"):::governance
+                end
+
+                %% --- 意图界 (Normative Realm) ---
+                subgraph Intent_Realm ["💭 Normative Realm (意/因)"]
+                    Telos("🎯 Telos (Intent)<br/>WHAT: 应当发生<br/>(Pure Purpose)"):::metaphysical
+                end
+
+                %% --- 逻辑界 (Abstract Realm) ---
+                subgraph Logic_Realm ["🧩 Abstract Realm (理/缘)"]
+                    Logos("🕸️ Logos (Topology)<br/>HOW: 因果结构<br/>(Algorithm/Logic)"):::logical
+                end
+
+                %% --- 物理界 (Empirical Realm) ---
+                subgraph Physical_Realm ["⚙️ Empirical Realm (物/果)"]
+                    Corpus("🏗️ Corpus (Resources)<br/>WHERE: 物理容器<br/>(Capabilities)"):::physical
+                    Aisthesis("👁️ Aisthesis (Evidence)<br/>TRUTH: 现实反馈<br/>(Sensation)"):::physical
+                    Runtime("🔌 Physical Runtime<br/>(Actual Hardware)"):::physical
+                end
+
+                %% --- 显化流 (The Flow of Manifestation) ---
+                
+                %% 1. 准入
+                User((Principal)) -->|"1. Submit"| Telos
+                Telos -.->|"Subject to"| Policy
+                Policy -->|"Op: Admit (准入)<br/>Permission Check"| Op_Admit["✅ Admit"]:::operator
+                
+                %% 2. 编译
+                Op_Admit -->|"Approved"| Op_Compile["🔄 Compile"]:::operator
+                Op_Compile -->|"Projection (投影)"| Logos
+                
+                %% 3. 匹配 (缘起的核心)
+                Logos -->|"Requires"| Op_Match["🔗 Match"]:::operator
+                Corpus -->|"Provides"| Op_Match
+                
+                %% 4. 选择
+                Op_Match -->|"Candidates (因缘具足)"| Op_Select["👆 Select"]:::operator
+                Arbiter -.->|"Guide"| Op_Select
+                
+                %% 5. 执行
+                Op_Select -->|"Plan (Karma/业)"| Op_Apply["⚡ Apply"]:::operator
+                Op_Apply -->|"Manifest"| Runtime
+                
+                %% 6. 感知与闭环
+                Runtime -.->|"Entropy/Events"| Op_Sense["📡 Sense"]:::operator
+                Op_Sense -->|"Update"| Aisthesis
+                
+                %% 7. 修正 (苦/Divergence)
+                Aisthesis -->|"Measure Divergence"| Op_Revise["🛠️ Revise"]:::operator
+                Op_Revise -->|"Feedback Error"| Op_Select
+                Op_Revise -.->|"Constraint Violation"| Policy
+        </div>
+        
+        <div class="annotation">
+            <h3>图例说明</h3>
+            <ul>
+                <li><span style="color:#64b5f6">🟦 意图层 (Telos)</span>: 纯粹的“因”，无物理实体。</li>
+                <li><span style="color:#90a4ae">⬜ 逻辑层 (Logos)</span>: 抽象的“理”，不朽的数学结构。</li>
+                <li><span style="color:#a1887f">🟫 物理层 (Corpus)</span>: 刚性的“缘”，具体的硬件限制。</li>
+                <li><span style="color:#ffd54f">🟨 治理层 (Policy)</span>: 系统的“道”，不可逾越的边界。</li>
+                <li><span style="border:1px solid white; padding:0 4px;">⬛ 操作符 (Operators)</span>: 推动因果转化的动词。</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

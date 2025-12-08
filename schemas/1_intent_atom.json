@@ -1,0 +1,26 @@
+{
+  "$schema": "http://reifyflow.org/intent",
+  "type": "object",
+  "properties": {
+    "atom_id": { "type": "string" },
+    "physics_type": { 
+      "type": "string", 
+      "enum": ["digital_io", "analog_in", "serial_stream", "power_drive"] 
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "direction": { "enum": ["in", "out", "bidirectional"] },
+        "speed_grade": { "enum": ["static", "low_speed", "high_speed"] },
+        "protocol": { "type": "string" },
+        
+        // ★ 新增：通用参数字典
+        "parameters": {
+          "type": "object",
+          "description": "具体的物理参数，如频率、波特率、电压",
+          "additionalProperties": true  // 允许 AI 自由添加 key-value
+        }
+      }
+    }
+  }
+}

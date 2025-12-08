@@ -1,0 +1,8 @@
+{
+  "pin_name": "PA9",
+  "affordances": [
+    { "function": "digital_io" },
+    { "function": "serial_stream", "performance": { "max_baud": 4500000 } },
+    { "function": "timer_pwm", "performance": { "max_freq": 72000000 } }
+  ]
+}

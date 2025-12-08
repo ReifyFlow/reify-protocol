@@ -1,0 +1,8 @@
+{
+  "atom_id": "debug_console",
+  "physics_type": "serial_stream",
+  "target_pin": "PA9",
+  "requirements": {
+    "parameters": { "baud_rate": 115200 }
+  }
+}
